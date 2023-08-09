@@ -1,0 +1,38 @@
+
+**Algorithm: Memory Allocation Simulation using First-Fit**
+
+1. Initialize variables:
+   - `bno`: Number of memory blocks
+   - `pno`: Number of processes
+   - Arrays `bsize[20]` and `psize[20]` to store memory block sizes and process sizes respectively
+   - Array `allocation[20]` to store the allocation results
+
+2. Initialize the `allocation` array with -1 to indicate that no processes are allocated to any blocks initially.
+
+3. Input the number of memory blocks (`bno`).
+   
+4. Input the size of each memory block and store them in the `bsize` array.
+
+5. Input the number of processes (`pno`).
+   
+6. Input the size of each process and store them in the `psize` array.
+
+7. Memory Allocation:
+   For each process `i` (from 0 to `pno - 1`):
+   - Iterate through each memory block `j` (from 0 to `bno - 1`):
+     - Check if the process size (`psize[i]`) is less than or equal to the memory block size (`bsize[j]`).
+     - If true, allocate the process `i` to memory block `j`:
+       - Set `allocation[i]` to `j` to record the allocation.
+       - Subtract the process size from the memory block size: `bsize[j] -= psize[i]`.
+       - Break out of the inner loop.
+
+8. Print Allocation Results:
+   - Print a header for the results table: `"Process_no\tProcess_size\tBlock_no"`.
+   - For each process `i` (from 0 to `pno - 1`):
+     - Print the process number (`i + 1`), process size (`psize[i]`), and the allocated block number.
+     - If the process is not allocated (`allocation[i] == -1`), print "Not allocated".
+     - Print a newline character to move to the next line.
+
+9. End of the program.
+
+The algorithm outlines the steps performed in your code to simulate memory allocation using the first-fit algorithm. It takes inputs for memory block sizes and process sizes, allocates processes to blocks based on their sizes, and then displays the allocation results.
